@@ -1,0 +1,6 @@
+[workspace]
+resolver = "2"
+members = [
+    "0_keygen", "1_trafficgen"
+]
+
