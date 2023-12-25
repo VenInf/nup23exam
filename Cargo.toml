@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
 members = [
-    "0_keygen", "1_trafficgen"
+    "0_keygen", "1_trafficgen", "2_dns", "3_http"
 ]
 
