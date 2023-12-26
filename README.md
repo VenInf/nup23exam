@@ -28,8 +28,8 @@ Your goal is to find __FLAG__ type record.
 #### HTTP - 14% ( 140 points )
 
 You're given a binary for Linux/OSX Arm/OSX Intel/Windows that works as an HTTP server.
-This HTTP server uses HTTP version 1.31337 that is unsupported in most browsers.
-Start from / and follow the instuctions to get your flag.
+This HTTP server uses H/1.1337 HTTP version that is unsupported in most browsers.
+Start from / and follow the instructions to get your flag.
 
 #### WIFI - 15% ( 150 points )
 
