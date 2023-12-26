@@ -31,6 +31,8 @@ You're given a binary for Linux/OSX Arm/OSX Intel/Windows that works as an HTTP 
 This HTTP server uses H/1.1337 HTTP version that is unsupported in most browsers.
 Start from / and follow the instructions to get your flag.
 
+P.S. Do chmod 755 for Linux/OSX and [disable Gatekeeper](https://disable-gatekeeper.github.io/) for OSX.
+
 #### WIFI - 15% ( 150 points )
 
 You're given a pcap file with captured WIFI traffic. Using all the tools you may find on the Internet, decrypt the
