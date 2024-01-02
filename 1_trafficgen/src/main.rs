@@ -225,14 +225,5 @@ fn random_flag(flag: String) -> String {
         })
         .collect::<Vec<char>>();
     let _chars = &chars;
-    format!(
-        "{}{}{}{}{}{}{}",
-        _chars[0],
-        _chars[1],
-        _chars[2],
-        _chars[3],
-        _chars[4],
-        &flag[5..37],
-        _chars[5]
-    )
+    format!("EX_M{{{}}}", &flag[5..37],)
 }

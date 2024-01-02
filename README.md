@@ -21,9 +21,15 @@ Your goal is to find the flag into **multicast UDP packet** with **broken IP che
 #### DNS - 14% ( 140 points )
 
 You're given a binary for Linux/OSX Arm/OSX Intel/Windows that works as a DNS server.
-This DNS server emulates multiple DNS servers by using different ports.
-This server has a well-known security flaw.
-Your goal is to find __FLAG__ type record.
+It listens UDP and TCP port 6053 on 127.0.0.1 and answers to some type of queries, like A, CNAME and so on.
+Try to get **all** the data from the server to find the flag.
+
+You may also need to use HEX2ASCII decoder, like
+```python3
+bytes.\
+    fromhex("557365206469672C204C756B6521").\
+    decode("utf-8")
+```
 
 #### HTTP - 14% ( 140 points )
 
