@@ -25,11 +25,14 @@ It listens UDP and TCP port 6053 on 127.0.0.1 and answers to some type of querie
 Try to get **all** the data from the server to find the flag.
 
 You may also need to use HEX2ASCII decoder, like
+
 ```python3
-bytes.\
-    fromhex("557365206469672C204C756B6521").\
-    decode("utf-8")
+bytes.
+fromhex("557365206469672C204C756B6521").
+decode("utf-8")
 ```
+
+P.S. Do chmod 755 for Linux/OSX and [disable Gatekeeper](https://disable-gatekeeper.github.io/) for OSX.
 
 #### HTTP - 14% ( 140 points )
 
@@ -47,11 +50,14 @@ P.S. Flag is not so obvious seen, it's somewhere in the traffic exchange.
 
 #### TCP - 15% ( 150 points )
 
-You're given a binary for Linux/OSX Arm/OSX Intel/Windows that must be run as root.
-Your goal is to connect to the TCP port the program listens ( use your best judgement or your network scanning tools or
-your OS system tools to find the port ).
+You're given a binary for Linux/OSX Arm/OSX Intel/Windows that works as TCP server.
+Your goal is to connect to the TCP port the program listens, so find the port first.
+Your source port must be the same as the destination port.
+
 After the connection is established - send the "getflag" command.
-P.S. If you got "connection reset" error - this is the part of the task. Enjoy.
+No more, no less. No quotes, no CRLF.
+
+Look into console output to get the idea why it's not working. Trial and error are expected.
 
 #### TLS - 15% ( 150 points )
 
