@@ -1,3 +1,5 @@
+mod flag;
+
 use {
     http_body_util::{BodyExt, Full},
     hyper::{
@@ -8,24 +10,6 @@ use {
     std::{convert::Infallible, net::IpAddr, process::exit},
     tokio::net::TcpListener,
 };
-
-static X: [u8; 64] = [
-    97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115,
-    116, 117, 118, 119, 120, 121, 122, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
-    80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 0, 0,
-];
-
-#[inline(always)]
-fn get_flag() -> Vec<u8> {
-    let mut flag = "EXAM{48564e3d6e272ccde24733285a85979f}".as_bytes().to_vec();
-    (0..64).step_by(4).for_each(|x| {
-        let idx = 5 + (x / 2);
-        let b = format!("{:02x}", X[x]);
-        flag[idx] = b.as_bytes()[0];
-        flag[idx + 1] = b.as_bytes()[1];
-    });
-    flag
-}
 #[tokio::main]
 async fn main() {
     let port = 1024 + (random::<u16>() % 64000);
@@ -72,7 +56,7 @@ async fn routing_function(
                 };
                 let body = body.to_bytes().to_vec();
                 if body.eq(b"give_me_flag_please!") {
-                    Ok(return_message(&String::from_utf8_lossy(&get_flag())))
+                    Ok(return_message(&String::from_utf8_lossy(&flag::get_flag())))
                 } else {
                     Ok(return_message("Now POST body \"give_me_flag_please!\""))
                 }

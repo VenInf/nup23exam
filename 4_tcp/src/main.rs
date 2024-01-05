@@ -21,7 +21,6 @@ fn main() {
         eprintln!("Can't bind IPv6 ::1:{port}");
         return;
     };
-    l.set_ttl(1).expect("TTL is not set");
     loop {
         let Ok((mut s, f)) = l.accept() else {
             eprintln!("Incoming connection failed");
