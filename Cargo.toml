@@ -5,6 +5,9 @@ members = [
     "0_keygen",
     "1_trafficgen",
     "2_dns",
-    "3_http"
-]
+    "3_http",
+    "4_tcp",
+    "5_wifigen",
+    "6_tls",
+    "7_rev"]
 

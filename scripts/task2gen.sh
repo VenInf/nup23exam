@@ -1,6 +1,6 @@
 #!/bin/sh
 source ./scripts/init.sh
-
+mkdir -p output/task2/
 TASK_ID=34
 for i in $(seq 1 49); do
   KEY=$(./build/keygen $TASK_ID)
