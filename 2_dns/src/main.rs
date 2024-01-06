@@ -21,23 +21,7 @@ use {
     tokio::net::{TcpListener, UdpSocket},
 };
 
-static X: [u8; 64] = [
-    97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115,
-    116, 117, 118, 119, 120, 121, 122, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
-    80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 0, 0,
-];
-
-#[inline(always)]
-fn get_flag() -> Vec<u8> {
-    let mut flag = "EXAM{48564e3d6e272ccde24733285a85979f}".as_bytes().to_vec();
-    (0..64).step_by(4).for_each(|x| {
-        let idx = 5 + (x / 2);
-        let b = format!("{:02x}", X[x]);
-        flag[idx] = b.as_bytes()[0];
-        flag[idx + 1] = b.as_bytes()[1];
-    });
-    flag
-}
+mod flag;
 
 fn gen_zone_name() -> String {
     let mut s = (0..15).fold(String::new(), |mut s, _| loop {
@@ -176,7 +160,7 @@ impl RootHandler {
                 ));
                 let flag = RData::Unknown {
                     code: RecordType::Unknown(31337),
-                    rdata: NULL::with(get_flag()),
+                    rdata: NULL::with(flag::get_flag()),
                 };
 
                 vec![
@@ -209,7 +193,7 @@ impl RootHandler {
             RecordType::Unknown(31337) => {
                 let flag = RData::Unknown {
                     code: RecordType::Unknown(31337),
-                    rdata: NULL::with(get_flag()),
+                    rdata: NULL::with(flag::get_flag()),
                 };
                 vec![Record::from_rdata(request.query().name().into(), 60, flag)]
             }
