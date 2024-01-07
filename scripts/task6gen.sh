@@ -7,6 +7,9 @@ o=$(pwd)
 for i in $(seq 1 54); do
   KEY=$(./build/keygen $TASK_ID)
   NAME=$(python ./scripts/gen_id.py $i)
+    if [ -f "${o}/output/SCLIv8MEMsDFsKT0/${NAME}.zip" ]; then
+      continue
+    fi
   cd "${o}/6_tls/"
   FLAG="$KEY" "${o}/build/writeflag" > src/flag.rs
   cargo build -r --target x86_64-pc-windows-gnu --target x86_64-unknown-linux-musl --target-dir build/
