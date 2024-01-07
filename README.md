@@ -42,11 +42,6 @@ Start from / and follow the instructions to get your flag.
 
 P.S. Do chmod 755 for Linux/OSX and [disable Gatekeeper](https://disable-gatekeeper.github.io/) for OSX.
 
-#### WIFI - 15% ( 150 points )
-
-You're given a pcap file with captured WIFI traffic. Using all the tools you may find on the Internet, decrypt the
-traffic and find the flag.
-P.S. Flag is not so obvious seen, it's somewhere in the traffic exchange.
 
 #### TCP - 15% ( 150 points )
 
@@ -59,6 +54,16 @@ No more, no less. No quotes, no CRLF.
 
 Look into console output to get the idea why it's not working. Trial and error are expected.
 
+P.S. Do chmod 755 for Linux/OSX and [disable Gatekeeper](https://disable-gatekeeper.github.io/) for OSX.
+
+#### WIFI - 15% ( 150 points )
+
+You're given a pcap file with captured WIFI traffic. Using all the tools you may find on the Internet, decrypt the
+traffic and find the flag.
+P.S. Flag is not so obvious seen, it's somewhere in the traffic exchange.
+
+
+
 #### TLS - 15% ( 150 points )
 
 You're given a binary for Linux/OSX Arm/OSX Intel/Windows that listens TCP port 4888 with custom SSL/TLS.
@@ -66,9 +71,14 @@ You're also given a PCAP file with a single successfull connection. You may find
 constants there.
 Your goal is to connect to the port and send the "getflag" command.
 
+Look into console output to get the idea why it's not working. Trial and error are expected.
+
+P.S. Do chmod 755 for Linux/OSX and [disable Gatekeeper](https://disable-gatekeeper.github.io/) for OSX.
+
+
 #### REV - 15% ( 150 points )
 
-You're given a pcap file with captured traffic of unknown protocol. Also you're given the protocol details in writings.
+You're given a pcap file with captured traffic of unknown protocol. Also, you're given the protocol details in writings.
 Your goal is to reverse engineer the protocol, collect the data and find the flag.
 
 #### BONUS - 15% ( 150 points )

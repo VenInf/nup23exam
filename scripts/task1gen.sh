@@ -1,11 +1,14 @@
 #!/bin/sh
 TASK_ID=33
-mkdir -p output/task1/
-for i in $(seq 1 49); do
+mkdir -p output/OU34lkzBodKvIrhG/
+echo "PCAP_basics" > output/OU34lkzBodKvIrhG/.name
+o=$(pwd)
+for i in $(seq 1 54); do
   KEY=$(./build/keygen $TASK_ID)
-  ./build/trafgen "$KEY" "output/task1/task1.pcap"
-  cd output/task1/
-  zip "task1_${i}.zip" "task1.pcap"
-  rm task1.pcap
-  cd ../..
+  NAME=$(python ./scripts/gen_id.py $i)
+  ./build/trafgen "$KEY" "output/OU34lkzBodKvIrhG/file.pcap"
+  cd output/OU34lkzBodKvIrhG/
+  zip "${NAME}.zip" "file.pcap"
+  rm file.pcap
+  cd "$o"
 done
