@@ -76,6 +76,9 @@ fn check_key(key: &str, task_id: u64) -> bool {
         eprintln!("Blowfish decrypt error");
         exit(-1);
     };
+    for _ in data.len()..16 {
+        data.push(0)
+    }
     for i in 0..8 {
         data[i + 8] ^= data[i];
     }
